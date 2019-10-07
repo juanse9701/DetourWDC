@@ -106,7 +106,7 @@
          */
         var dateObj = JSON.parse(tableau.connectionData)
         slug = dateObj.slug;
-        $.get("http://nube.realityapp.co:1248/api/v1/page/tableau/qualification/?slug=" + slug, function (resp) {
+        $.get("http://nube.realityapp.co:1248/api/v1/page/tableau/?slug=" + slug, function (resp) {
             // var feat = resp.features,
             var feat = resp // dependiendo del api el ().results puede cambiar, inclusive puede no ir, depende que devuelva el API.
             console.log(feat);
@@ -124,7 +124,7 @@
 $(document).ready(function() {
     $("#submitButton").click(function() {
         var dateObj = {
-            slug: 'marker'
+            slug: 'marker_qualification'
         };
         tableau.connectionData = JSON.stringify(dateObj);
         tableau.connectionName = "Tableau v1.1"; // This will be the data source name in Tableau
@@ -135,7 +135,7 @@ $(document).ready(function() {
 $(document).ready(function() {
     $("#city").click(function() {
         var dateObj = {
-            slug: 'city'
+            slug: 'city_qualification'
         };
         tableau.connectionData = JSON.stringify(dateObj);
         tableau.connectionName = "Tableau v1.1"; // This will be the data source name in Tableau
