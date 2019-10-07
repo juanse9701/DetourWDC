@@ -105,7 +105,7 @@
                     {
                         id: "usuarios",
                         alias: "usuarios",
-                        dataType: tableau.dataTypeEnum.string
+                        dataType: tableau.dataTypeEnum.int
                     }
                 ];    
                 break;
