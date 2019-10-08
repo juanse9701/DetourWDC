@@ -109,6 +109,26 @@
                     }
                 ];    
                 break;
+
+            case 'subscription_country':
+                cols = [
+                    {
+                        id: "pais",
+                        alias: "pais",
+                        dataType: tableau.dataTypeEnum.string
+                    },
+                    {
+                        id: "categoria",
+                        alias: "categoria",
+                        dataType: tableau.dataTypeEnum.string
+                    },
+                    {
+                        id: "usuarios",
+                        alias: "usuarios",
+                        dataType: tableau.dataTypeEnum.int
+                    }
+                ];    
+                break;    
                     
         }
         
@@ -160,6 +180,16 @@
                         tableData.push({
                             "departamento": feat[i].Departamento,
                             "municipio": feat[i].ciudad,
+                            "categoria": feat[i].categoria,
+                            "usuarios": feat[i].usuarios,
+                        });
+                    }
+                    break;
+                    
+                case 'subscription_country':
+                    for (var i = 0, len = feat.length; i < len; i++) {
+                        tableData.push({
+                            "pais": feat[i].pais,
                             "categoria": feat[i].categoria,
                             "usuarios": feat[i].usuarios,
                         });
@@ -226,9 +256,9 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-    $("#ie").click(function() {
+    $("#usp").click(function() {
         var dateObj = {
-            slug: 'interno_emisor'
+            slug: 'subscription_country'
         };
         tableau.connectionData = JSON.stringify(dateObj);
         tableau.connectionName = "Tableau v1.1"; // This will be the data source name in Tableau
