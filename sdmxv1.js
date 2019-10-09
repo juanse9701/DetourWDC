@@ -37,11 +37,6 @@
                         alias: "calificacion_geomarcador",
                         dataType: tableau.dataTypeEnum.float
                     },
-                   /*  {
-                        id: " calificacion_municipio",
-                        alias: " calificacion_municipio",
-                        dataType: tableau.dataTypeEnum.float
-                    }, */
                     {
                         id: "CantPersoCalif",
                         alias: "CantPersoCalif",
@@ -129,7 +124,46 @@
                     }
                 ];    
                 break;    
-                    
+            
+            case 'download':
+                cols= [
+                    {
+                        id: "municipio",
+                        alias: "municipio",
+                        dataType: tableau.dataTypeEnum.string  
+                    },
+                    {
+                        id: "categoria",
+                        alias: "categoria",
+                        dataType: tableau.dataTypeEnum.string
+                    },
+                    {
+                        id: "subcategoria",
+                        alias: "subcategoria",
+                        dataType: tableau.dataTypeEnum.string
+                    },
+                    {
+                        id: "geomarcador",
+                        alias: "geomarcador",
+                        dataType: tableau.dataTypeEnum.string
+                    },
+                    {
+                        id: "contenido",
+                        alias: "contenido",
+                        dataType: tableau.dataTypeEnum.string
+                    },
+                    {
+                        id: "descargas",
+                        alias: "descargas",
+                        dataType: tableau.dataTypeEnum.int
+                    },
+                    {
+                        id: "periodo",
+                        alias: "periodo",
+                        dataType: tableau.dataTypeEnum.date 
+                    }
+                ];
+                break;    
         }
         
         var tableInfo = {
@@ -259,6 +293,17 @@ $(document).ready(function() {
     $("#usp").click(function() {
         var dateObj = {
             slug: 'subscription_country'
+        };
+        tableau.connectionData = JSON.stringify(dateObj);
+        tableau.connectionName = "Tableau v1.1"; // This will be the data source name in Tableau
+        tableau.submit(); // This sends the connector object to Tableau
+    });
+});
+
+$(document).ready(function() {
+    $("#rd").click(function() {
+        var dateObj = {
+            slug: 'download'
         };
         tableau.connectionData = JSON.stringify(dateObj);
         tableau.connectionName = "Tableau v1.1"; // This will be the data source name in Tableau
