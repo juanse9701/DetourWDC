@@ -228,7 +228,21 @@
                             "usuarios": feat[i].usuarios,
                         });
                     }
-                    break;    
+                    break;
+                    
+                case 'download':
+                    for (var i = 0, len = feat.length; i < len; i++) {
+                        tableData.push({
+                            "municipio": feat[i].ciudad,
+                            "categoria": feat[i].categoria,
+                            "subcategoria": feat[i].subcategoria,
+                            "geomarcador": feat[i].geomarcador,
+                            "contenido": feat[i].contenido,
+                            "descargas": feat[i].descargas,
+                            "periodo": feat[i].periodo
+                        });
+                    }
+                    break;   
 
             }
 
