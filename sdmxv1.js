@@ -233,7 +233,7 @@
                 case 'download':
                     for (var i = 0, len = feat.length; i < len; i++) {
                         tableData.push({
-                            "municipio": feat[i].ciudad,
+                            "municipio": feat[i].municipio,
                             "categoria": feat[i].categoria,
                             "subcategoria": feat[i].subcategoria,
                             "geomarcador": feat[i].geomarcador,
