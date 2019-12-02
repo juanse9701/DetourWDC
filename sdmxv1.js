@@ -258,7 +258,7 @@
         /**
          * el metodo get recibe la url de los datos y un callback que va a tratarlos
          */
-        $.get("https:// detourpanel.cundinamarca.gov.co/api/v1/page/tableau/?slug=" + slug, function (resp) {
+        $.get("https://detourpanel.cundinamarca.gov.co/api/v1/page/tableau/?slug=" + slug, function (resp) {
             // var feat = resp.features,
             var feat = resp // dependiendo del api el ().results puede cambiar, inclusive puede no ir, depende que devuelva el API.
             console.log(feat);
