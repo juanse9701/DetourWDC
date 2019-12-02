@@ -204,7 +204,7 @@
                     for (var i = 0, len = feat.length; i < len; i++) {
                         tableData.push({
                             "municipio": feat[i].municipio,
-                            "calificacion_municipio": feat[i].calificacion_municipio,
+                            "calificacion_municipio": parseFloat((feat[i].calificacion_municipio)),
                             "CantPersoCalif": feat[i].CantPersoCalif,
                             "CantPersoValora": feat[i].CantPersoValora,
                             "periodo": feat[i].periodo
