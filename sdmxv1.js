@@ -1,8 +1,9 @@
+// Función auto-ejecutable o IIFE, esta le da un scope local
 (function() {
-    // Create the connector object
+    // Crea el objeto conector para tableau
     var myConnector = tableau.makeConnector();
     const opts = { crossDomain: true};
-    // Define the schema
+    /** Define el esquema de la tabla que aparecera en tableau, en este caso se aplica un switch case para el tipo de reporte */ 
     myConnector.getSchema = function (schemaCallback) {
         var dateObj = JSON.parse(tableau.connectionData)
         slug = dateObj.slug;
@@ -175,10 +176,12 @@
         schemaCallback([tableInfo]);
     };
 
-
+    // Función que recibe un objeto, este es utilizada para crear la tabla.
     const createTable = function (feat, slug) {
         tableData = [];
-            // Iterate over the JSON object
+             /** Itera por cada dato de feat y va insertando el mismo en la tabla., en este caso tambien hay un switch-case que me 
+              * me indica que tipo de tabla debe crear.
+              */
             alert(feat.length)
             switch (slug){
                 case 'marker_qualification':
@@ -250,7 +253,7 @@
     }
 
 
-    // Download the data
+    // Método encargado de realizar la descarga de los datos.
     myConnector.getData = function(table, doneCallback) {
         /**
          * el metodo get recibe la url de los datos y un callback que va a tratarlos
@@ -266,7 +269,7 @@
 
 
     tableau.registerConnector(myConnector);
-    // Create event listeners for when the user submits the form
+    // Crea event listeners para cuando el usuario haga submits sobre el formulario
 })();
 
 
@@ -275,9 +278,12 @@ $(document).ready(function() {
         var dateObj = {
             slug: 'marker_qualification'
         };
+        // Agrega el valor de dateObj a la información de la conexión.
         tableau.connectionData = JSON.stringify(dateObj);
-        tableau.connectionName = "Tableau v1.1"; // This will be the data source name in Tableau
-        tableau.submit(); // This sends the connector object to Tableau
+        // Este será el nombre de la fuente de datos en Tableau
+        tableau.connectionName = "Tableau v1.1"; 
+        // Aquí se envia el objeto conector a tableau(el scope de este es global).
+        tableau.submit();
     });
 });
 
@@ -286,9 +292,12 @@ $(document).ready(function() {
         var dateObj = {
             slug: 'city_qualification'
         };
+        // Agrega el valor de dateObj a la información de la conexión.
         tableau.connectionData = JSON.stringify(dateObj);
-        tableau.connectionName = "Tableau v1.1"; // This will be the data source name in Tableau
-        tableau.submit(); // This sends the connector object to Tableau
+        // Este será el nombre de la fuente de datos en Tableau
+        tableau.connectionName = "Tableau v1.1";
+        // Aquí se envia el objeto conector a tableau(el scope de esta es global).
+        tableau.submit();
     });
 });
 
@@ -297,9 +306,12 @@ $(document).ready(function() {
         var dateObj = {
             slug: 'subscription'
         };
+        // Agrega el valor de dateObj a la información de la conexión.
         tableau.connectionData = JSON.stringify(dateObj);
-        tableau.connectionName = "Tableau v1.1"; // This will be the data source name in Tableau
-        tableau.submit(); // This sends the connector object to Tableau
+        // Este será el nombre de la fuente de datos en Tableau
+        tableau.connectionName = "Tableau v1.1"; 
+        // Aquí se envia el objeto conector a tableau(el scope de esta es global).    
+        tableau.submit(); 
     });
 });
 
@@ -308,9 +320,12 @@ $(document).ready(function() {
         var dateObj = {
             slug: 'subscription_country'
         };
+        // Agrega el valor de dateObj a la información de la conexión.    
         tableau.connectionData = JSON.stringify(dateObj);
-        tableau.connectionName = "Tableau v1.1"; // This will be the data source name in Tableau
-        tableau.submit(); // This sends the connector object to Tableau
+        // Este será el nombre de la fuente de datos en Tableau    
+        tableau.connectionName = "Tableau v1.1"; 
+        // Aquí se envia el objeto conector a tableau(el scope de esta es global).
+        tableau.submit();
     });
 });
 
@@ -319,8 +334,11 @@ $(document).ready(function() {
         var dateObj = {
             slug: 'download'
         };
+        // Agrega el valor de dateObj a la información de la conexión.
         tableau.connectionData = JSON.stringify(dateObj);
-        tableau.connectionName = "Tableau v1.1"; // This will be the data source name in Tableau
-        tableau.submit(); // This sends the connector object to Tableau
+        // Este será el nombre de la fuente de datos en Tableau
+        tableau.connectionName = "Tableau v1.1"; 
+        // Aquí se envia el objeto conector a tableau(el scope de esta es global).
+        tableau.submit();
     });
 });
